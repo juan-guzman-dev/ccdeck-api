@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 const { SECRET_KEY } = require("../config");
-const ExpressError = require("../expressError");
 
 
 /** POST /register:  { email, password } => { token }
@@ -103,13 +102,14 @@ router.post("/login", async function (req, res, next) {
 
 /** logout: clear cookies and redirect to home page */
 router.get("/logout", async function (req, res, next) {
-    req.session.destroy(err => {
-        if (err) {
-            return res.redirect("/")
-        }
-        res.clearCookie('sid')
-        res.redirect("/")
-    })
+    // req.session.destroy(err => {
+    //     if (err) {
+    //         return res.redirect("/")
+    //     }
+    //     res.clearCookie('sid')
+    //     res.redirect("/")
+    // })
+    req.session = null
 });
 // end
 
