@@ -109,7 +109,15 @@ router.get("/logout", async function (req, res, next) {
     //     res.clearCookie('sid')
     //     res.redirect("/")
     // })
-    req.session = null
+    try {
+        req.session = null
+        res.clearCookie('sid')
+        res.redirect("/")
+    }
+    catch (err) {
+        res.redirect('/login')
+    }
+
 });
 // end
 
