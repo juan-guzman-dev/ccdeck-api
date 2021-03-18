@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/userAuth.json",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 20
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "email",
+    "password"
+  ]
+}

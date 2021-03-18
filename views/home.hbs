@@ -1,0 +1,194 @@
+{{>header}}
+
+<main role="main">
+    <div class="container mt-5">
+        <br><br>
+        <!-- Messages -->
+        {{#if message}}
+        <div style="text-align: center" class="alert alert-{{message.type}} alert-dismissible fade show" role="alert">
+            <strong>{{message.intro}}</strong>{{message.message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+
+        <!-- Page Header -->
+        <div class="page-header" id="banner">
+            <div class="row pt-5">
+                <div class="col text-center text-lg-start">
+                    <h1 class="display-3">CCdeck API</h1>
+                    <p class="lead">The Open Credit Card Database</p>
+                    <p>The CCdeck API is a RESTful web service that provides credit cards and banks data.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center text-lg-start">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        <h4 class="alert-heading">Attention Users</h4>
+                        <p class="d-inline bg-warning text-blue p-1">CCdeck API is in development process.</p>
+                        <p class="mt-3">I hope that the first Beta of CCdeck API will be
+                            available to use in the incoming weeks.</p>
+                        <hr>
+                        {{!-- <p class="mb-0">
+                            dd/mm/yy - text here.
+                            <br><br>
+                            dd/mm/yy - text here.
+                        </p> --}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage -->
+        <div class="docs-section" id="usage">
+            <div class="row pt-5">
+                <div class="col text-center text-lg-start">
+                    <div class="page-header">
+                        <h1>Usage</h1>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row pt-4">
+                <div class="col text-start">
+                    <div class="component">
+                        <p>After <a href="/register">signing up</a>, you'll be given your own, unique API key which you
+                            can access in the Dashboard section. This 165
+                            character string is your API key. The key:</p>
+                        <ul>
+                            <li>Uniquely identifies you.</li>
+                            <li>Gives you access to all routes available in CCdeck API's service.</li>
+                            <li>Should be kept private and should not be shared.</li>
+                        </ul>
+                        <p>To use your key, simply pass the key as a URL query parameter when making Web service
+                            requests. For example:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col text-start">
+                    <div class="component">
+                        <p>Send all <span id="bold-text">card</span> requests to:</p>
+                        <p class="border py-2 px-3 bg-light">
+                            <span class="badge bg-info">GET</span>&nbsp;&nbsp;&nbsp;<span
+                                id="code-text">https://ccdeck-api.herokuapp.com/cards?&api_key=YOUR_KEY_HERE</span>
+                        </p>
+                        <br>
+                        <p>Send all <span id="bold-text">bank</span> requests to:</p>
+                        <p class="border py-2 px-3 bg-light">
+                            <span class="badge bg-info">GET</span>&nbsp;&nbsp;&nbsp;
+                            <span id="code-text">https://ccdeck-api.herokuapp.com/banks?&api_key=YOUR_KEY_HERE</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Parameters -->
+        <div class="docs-section" id="parameters">
+            <div class="row pt-5">
+                <div class="col text-center text-lg-start">
+                    <div class="page-header">
+                        <h1>GET Query Parameters</h1>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row pt-4">
+                <div class="col">
+                    <div class="component">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Routes</th>
+                                    <th>Required</th>
+                                    <th>Default Value</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span id="code-text">api_key</span></td>
+                                    <td><span id="code-text">/cards? /banks?</span></td>
+                                    <td><span class="badge bg-danger">Yes</span></td>
+                                    <td>&lt;empty&gt;</td>
+                                    <td>A valid API key to access and use the routes available on this API.</td>
+                                </tr>
+                                <tr>
+                                    <td><span id="code-text">id</span></td>
+                                    <td><span id="code-text">/cards?</span></td>
+                                    <td><span class="badge bg-success">Optional</span></td>
+                                    <td>&lt;empty&gt;</td>
+                                    <td>A valid card ID. Only include card that has this ID.</td>
+                                </tr>
+                                <tr>
+                                    <td><span id="code-text">name</span></td>
+                                    <td><span id="code-text">/cards?</span></td>
+                                    <td><span class="badge bg-success">Optional</span></td>
+                                    <td>&lt;empty&gt;</td>
+                                    <td>Character or set of characters part of card name to search
+                                        for. Only include cards that have this character or set of characters in their
+                                        name (case-insensitive).</td>
+
+                                </tr>
+                                <tr>
+                                    <td><span id="code-text">bank_id</span></td>
+                                    <td><span id="code-text">/cards?</span></td>
+                                    <td><span class="badge bg-success">Optional</span></td>
+                                    <td>&lt;empty&gt;</td>
+                                    <td>A comma separated list of bank IDs. Only include cards that have one of these
+                                        bank IDs. To get a list of all bank IDs, please use <span
+                                            id="code-text">https://ccdeck-api.herokuapp.com/banks</span>.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Examples -->
+        <div class="docs-section" id="examples">
+            <div class="row pt-5">
+                <div class="col-12">
+                    <div class="page-header text-center text-lg-start">
+                        <h1>Examples</h1>
+                    </div>
+                    <p class="border py-2 px-3 bg-light">
+                        <span class="badge bg-info">GET</span>&nbsp;&nbsp;&nbsp;
+                        <span
+                            id="code-text">https://ccdeck-api.herokuapp.com/cards?&api_key=YOUR_KEY_HERE&name=freedom</span>
+                    </p>
+                    <img src="images/freedom.png" class="img-fluid" alt="example-1">
+                </div>
+                <div class="col-12 mt-4">
+                    <p class="border py-2 px-3 bg-light">
+                        <span class="badge bg-info">GET</span>&nbsp;&nbsp;&nbsp;
+                        <span
+                            id="code-text">https://ccdeck-api.herokuapp.com/cards?&api_key=YOUR_KEY_HERE&id=2b9efc4e-dc43-49e5-ab2f-c544dd23e097</span>
+                    </p>
+                    <img src="images/cardID.png" class="img-fluid" alt="example-1">
+                </div>
+                <div class="col-12 mt-4">
+                    <p class="border py-2 px-3 bg-light">
+                        <span class="badge bg-info">GET</span>&nbsp;&nbsp;&nbsp;
+                        <span id="code-text">https://ccdeck-api.herokuapp.com/banks?&api_key=YOUR_KEY_HERE</span>
+                    </p>
+                    <img src="images/banks.png" class="img-fluid" alt="example-1">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+</main>
+<footer class="text-muted py-5">
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">API by <a href="mailto:juan.guzman.sd@gmail.com">Juan Guzman</a>.</p>
+        <p class="mb-0">This site is not endorsed by or affiliated with any credit card company.</p>
+    </div>
+</footer>

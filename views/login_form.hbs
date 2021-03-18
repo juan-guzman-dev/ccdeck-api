@@ -1,0 +1,43 @@
+{{>header_login}}
+
+<div class="container mt-5 pt-5">
+  <!-- Messages -->
+  {{#if message}}
+  <div style="text-align: center" class="alert alert-{{message.type}} alert-dismissible fade show" role="alert">
+    <strong>{{message.intro}}</strong>{{message.message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
+
+  <!-- Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6 px-sm-0">
+      <h1>Login</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 border bg-light">
+      <form method="POST" action="/login">
+        <div class="form-group mt-2">
+          <label>Email:</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group mt-2">
+          <label>Password:</label>
+          <input type="password" name="password" class="form-control" minlength="5" maxlength="20" required>
+        </div>
+        <div class="form-group row my-2">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p><span>Not a member yet? </span><a href="/register">Get your API Key</a></p>
+    </div>
+  </div>
+</div>

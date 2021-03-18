@@ -1,0 +1,35 @@
+{
+  "name": "capstone-two",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "v12.18.3"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon -e html,css,js,json server.js",
+    "debug": "nodemon --inspect server.js"
+  },
+  "author": "guzman",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "jsonschema": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.2",
+    "pg": "^8.5.1",
+    "supertest": "^6.0.1"
+  }
+}

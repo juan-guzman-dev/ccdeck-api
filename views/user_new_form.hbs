@@ -1,0 +1,71 @@
+{{>header_signup}}
+
+<div class="container mt-5 pt-5">
+  <!-- Messages -->
+  {{#if message}}
+  <div style="text-align: center" class="alert alert-{{message.type}} alert-dismissible fade show" role="alert">
+    <strong>{{message.intro}}</strong>{{message.message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
+
+  <!-- Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6 px-sm-0">
+      <h1>Sign Up</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 border bg-light">
+      <h5 class="mt-3 text-muted">Generate API Key</h5>
+      <hr>
+      <form method="POST" action="/register">
+        <label>Account Type</label>
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="radio" id="radioBtn" checked>
+          <label class="form-check-label" for="radioBtn">
+            FREE! (no limit)
+          </label>
+        </div>
+        <div class="row mt-2">
+          <label>Name:</label>
+          <div class="col-md-6">
+            <input type="text" name="firstName" class="form-control" placeholder="First Name" required>
+          </div>
+          <div class="col-md-6">
+            <input type="text" name="lastName" class="form-control" placeholder="Last Name" required>
+          </div>
+        </div>
+        <div class="form-group mt-2">
+          <label>Email:</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group mt-2">
+          <label>Password:</label>
+          <input type="password" name="password" class="form-control" minlength="5" maxlength="20" required>
+        </div>
+        <div class="form-group mt-2">
+          <label>Confirm your password:</label>
+          <input type="password" name="confirm" class="form-control" minlength="5" maxlength="20" required>
+        </div>
+        <div class="form-group mt-2">
+          <label>Use:</label>
+          <textarea name="notes" rows="3" cols="20" class="form-control" maxlength="100" required></textarea>
+          <small class="text-muted">A short description of the application or website that will use this
+            API.</small>
+        </div>
+        <div class="form-group row my-2">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p><span>Have an account? </span><a href="/login">Login</a></p>
+    </div>
+  </div>
+</div>
