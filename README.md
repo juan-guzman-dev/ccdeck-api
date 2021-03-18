@@ -1,5 +1,5 @@
 ## Project Name
-###Credit Card & Bank Web API###
+**Credit Card & Bank Web API**
 
 ## Description
 A free, server-side web API supplying credit card and bank data.
